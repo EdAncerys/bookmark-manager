@@ -1,4 +1,3 @@
-# CAPYBARA SET UP
 ENV['RACK_ENV'] = 'test'
 
 # require our Sinatra app file
