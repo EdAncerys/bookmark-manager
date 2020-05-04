@@ -1,3 +1,13 @@
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
 ENV['RACK_ENV'] = 'test'
 
 # require our Sinatra app file
@@ -112,3 +122,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+
