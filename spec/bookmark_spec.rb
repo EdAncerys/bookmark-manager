@@ -5,7 +5,7 @@ describe Bookmark do
     it 'returns all bookmarks' do
       connection = PG.connect(dbname: 'bookmark_manager_test')
       
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+      connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.twitter.com');")
       connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
       connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
       

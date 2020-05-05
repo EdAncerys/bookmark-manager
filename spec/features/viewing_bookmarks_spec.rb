@@ -5,14 +5,6 @@ feature 'Viewing bookmarks' do
     expect(page).to have_content 'Bookmark Manager'
   end
 
-  scenario 'a user can see bookmarks' do
-    visit('/bookmarks')
-
-    expect(page).to have_content 'http://www.twitter.com'
-    expect(page).to have_content 'http://www.destroyallsoftware.com'
-    expect(page).to have_content 'http://www.google.com'
-  end
-
   scenario 'A user can see bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
 
