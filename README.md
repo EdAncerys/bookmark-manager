@@ -1,49 +1,82 @@
-# Walkthrough - Creating User Stories
+### Bookmark Manager
 
-[Back to Challenge](../01_creating_user_stories.md)
+This code is intended as a supplementary guide for bookmark manager. The commits on master branch roughly correspond with the walkthroughs provided in the challenge.
 
-The precise details of the user story is up to you. Here's my go:
-
+User Stories
 ```
 As a time-pressed user
 So that I can quickly go to web sites I regularly visit
 I would like to see a list of bookmarks
+
+As a user
+So I can store bookmark data for later retrieval
+I want to add a bookmark to Bookmark Manager
+
+As a user
+So that I can keep my bookmarks relevant
+I want to delete a bookmark
+
+As a user
+So that I can keep my bookmarks up to date
+I want to edit a bookmark
+
+As a user
+So that the bookmarks I save are useful
+I want to only save a valid URL
+
+As a user
+So that I can make interesting notes
+I want to add a Comment to a Bookmark
 ```
+### Domain Model
 
-Here's what I came up with as a domain model:
+Below is a domain model for the bookmarks model.
 
-![Bookmark Manager domain model](../images/bookmark_manager_1.png)
+<p align="center">
+    <img width="600" src="images/bookmark_manager_domain_model.png">  
+    *Bookmark Manager domain model* 
+</p>
 
-- When the user visits the '/bookmarks' path, their browser sends a request to a controller we built.
-- When the controller gets the request, it asks the `Bookmark` class to give it all the bookmarks, i.e. the controller asks for `Bookmark.all`.
-- The `Bookmark` class goes and gets the bookmarks, and gives back all the bookmarks in an array to the controller.
-- The controller renders the array of bookmarks to a webpage, which it sends as a response to the user
+#### Entity Relationship Diagram
 
-So, it feels like the first things we need are:
- - a Controller
- - a Bookmark class
- - A bookmark view
+The below diagram indicates that:
 
-> That's enough design for now. We should aim to start coding sooner rather than later.
+- A Bookmark has many Comments
+- A Comment belongs to a Bookmark
 
-[Here's](https://github.com/makersacademy/bookmark_manager_example/commit/78e6f02cedbffe9479f4f81f15ab135d68b3f95c) a commit of this stage.
+<p align="center">
+    <img width="600" src="images/Entity_Relationship_Diagram.png">  
+    *Entity Relationship Diagram* 
+</p>
 
-[Next Challenge](../02_setting_up_a_web_project.md)
+### How to use
 
+#### To set up the project
 
-![Tracking pixel](https://githubanalytics.herokuapp.com/course/bookmark_manager/walkthroughs/01.md)
+Clone this repository and then run:
+```
+bundle
+```
+#### To set up the database
 
-This is a start, but it's not enough to simply record the SQL queries, the README needs to be updated with instructions on how to use these. Anyone needing to setup the database from scratch will need to do the following things:
+Connect to `psql` and create the `bookmark_manager` and `bookmark_manager_test` databases:
+```
+CREATE DATABASE bookmark_manager;
+CREATE DATABASE bookmark_manager_test;
+```
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
 
-Connecting to dev database
+To run the Bookmark Manager app:
+```
+rackup -p 3000
+```
+To view bookmarks, navigate to localhost:3000/bookmarks.
 
-Connect to psql
-Create the database using the psql command CREATE DATABASE bookmark_manager;
-Connect to the database using the pqsl command \c bookmark_manager;
-Run the query we have saved in the file 01_create_bookmarks_table.sql
-Connecting to test database
-
-Connect to psql
-Create the database using the psql command CREATE DATABASE bookmark_manager;
-Connect to the database using the pqsl command \c bookmark_manager;
-Run the query we have saved in the file 01_create_bookmarks_table.sql
+#### To run tests:
+```
+rspec
+```
+#### To run linting:
+```
+rubocop
+```
