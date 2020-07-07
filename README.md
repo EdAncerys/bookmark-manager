@@ -122,8 +122,10 @@ I want to add a Comment to a Bookmark
 Below is a domain model for the bookmarks model.
 
 <p align="center">
-    <img width="600" src="images/bookmark_manager_domain_model.png">  
-    *Bookmark Manager domain model* 
+    <img width="600" src="images/bookmark_manager_domain_model.png">
+
+    *Bookmark Manager domain model*
+
 </p>
 
 ### Entity Relationship Diagram
@@ -135,5 +137,6 @@ The below diagram indicates that:
 
 <p align="center">
     <img width="600" src="images/Entity_Relationship_Diagram.png">  
+    
     *Entity Relationship Diagram* 
 </p>
