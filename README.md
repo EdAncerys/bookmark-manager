@@ -1,6 +1,6 @@
 # Bookmark Manager
 
-[Project Description](#project-description) | [Tech Stack](#tech-stack) | [Installation](#installation) | [Running tests](#running-tests) | [Development Process](#development-process) | [User Stories](#user-stories)
+[Project Description](#project-description) | [Tech Stack](#tech-stack) | [Installation](#installation) | [Running tests](#running-tests) | [Development Process](#development-process) | [User Stories](#user-stories) | [Domain Model](#domain-model) | [Entity Relationship Diagram](#entity-relationship-diagram)
 
 ## Project Description
 
